@@ -22,7 +22,5 @@ context = {context}
 query = {query}
 
 """
-
 response = llm.invoke(prompt)
-
 print(response.content)

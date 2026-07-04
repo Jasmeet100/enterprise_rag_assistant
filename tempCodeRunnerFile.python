@@ -1,7 +1,0 @@
-import langchain
-import langchain_google_genai
-import langchain_huggingface
-import langchain_pinecone
-import pinecone
-
-print("Everything installed successfully!")
