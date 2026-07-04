@@ -12,6 +12,6 @@ from fastapi import FastAPI, UploadFile, File
 def upload_pdf(pdf: UploadFile = File(...)):
     return{
         "filename": pdf.filename,
-        "content_type": pdf.content_type
+        "content_type": pdf.content_type    
     }
-    
+  
