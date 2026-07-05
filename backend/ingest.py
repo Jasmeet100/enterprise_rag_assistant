@@ -32,13 +32,6 @@ def ingest_pdf(pdf_path):
     
     return len(chunks)
 
-    
-pdf_path = input("Enter PDF path: ")
-
-num_chunks = ingest_pdf(pdf_path)
-
-print(f"Successfully uploaded {num_chunks} chunks.")
-
 
 '''
 index = pc.Index("enterprise_demo")
