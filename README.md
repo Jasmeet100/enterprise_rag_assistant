@@ -67,7 +67,7 @@ This project is being built to gain hands-on experience with:
 - Production AI Systems
 ---
 
-##Status
+#Status
 Current Progress
 
 ✅ PDF Upload API
