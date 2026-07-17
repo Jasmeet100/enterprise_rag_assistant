@@ -2,7 +2,14 @@ from fastapi import FastAPI, UploadFile, File
 import shutil
 import os
 
-from ingest import ingest_pdf
+from backend.ingest import ingest_pdf
+
+from backend.chatbot import generate_answer
+
+from pydantic import BaseModel
+
+class ChatRequest(BaseModel):
+    query: str
 
 app =  FastAPI()
 
@@ -25,3 +32,14 @@ def upload_pdf(pdf: UploadFile = File(...)):
         "filename" : pdf.filename,
         "chunks_created" : chunks
     }
+    
+@app.post("/chat")
+def chat(request: ChatRequest):
+
+    answer = generate_answer(request.query)
+
+    return {
+        "query": request.query,
+        "answer": answer
+    }
+    

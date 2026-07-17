@@ -38,4 +38,3 @@ vectorstore = PineconeVectorStore(
     embedding=embeddings
 )
 
-

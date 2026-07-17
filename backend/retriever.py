@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 load_dotenv()
 
-from vectorstore import vectorstore
+from backend.vectorstore import vectorstore
 
 query = "What is the criteria for pass marks?"
 

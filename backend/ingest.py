@@ -10,7 +10,7 @@ from pinecone import Pinecone, ServerlessSpec
 
 load_dotenv()   
 
-from vectorstore import vectorstore
+from backend.vectorstore import vectorstore
 
 
 def ingest_pdf(pdf_path):

@@ -1,26 +1,39 @@
 from dotenv import load_dotenv
 load_dotenv()
-from vectorstore import vectorstore
+
+from backend.vectorstore import vectorstore
 from langchain_google_genai import ChatGoogleGenerativeAI
 
-llm = ChatGoogleGenerativeAI(model='gemini-2.5-flash')
+llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 
-query = "What is the criteria for passing?"
 
-docs = vectorstore.similarity_search(query, k=3)
+def generate_answer(query):
 
-context = "\n\n".join(doc.page_content for doc in docs)    
+    docs = vectorstore.similarity_search(query, k=5)
 
-prompt = f"""
+    context = "\n\n".join(doc.page_content for doc in docs)
 
-You are a helpful assistant. 
+    prompt = f"""
+    You are an AI assistant that answers questions about the uploaded documents.
 
-Answer the question using ONLY the provided context.
+    Rules:
+    - Answer ONLY from the provided context.
+    - If the answer is not present in the context, reply:
+    "I couldn't find that information in the uploaded document."
+    - Do not make up facts.
+    - Keep the answer clear, concise, and well formatted.
+    - If possible, answer using bullet points.
 
-context = {context}
+    Context:
+    {context}
 
-query = {query}
+    Question:
+    {query}
 
-"""
-response = llm.invoke(prompt)
-print(response.content)
+    Answer:
+    """
+
+    response = llm.invoke(prompt)
+
+    return response.content
+    
