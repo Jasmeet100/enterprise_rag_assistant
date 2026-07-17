@@ -7,14 +7,14 @@ This project implements a scalable RAG pipeline that processes PDF documents, co
 The goal is to build a production-ready AI assistant capable of answering questions from private company knowledge bases instead of relying only on an LLM's pretrained knowledge.
 ---
 ## Features Implemented
-- PDF document ingestion
-- Document loading using LangChain
-- Recursive text chunking
-- Semantic embeddings using Sentence Transformers
-- Pinecone Vector Database integration
-- Automatic vector storage
-- Modular project architecture
-- FastAPI backend setup (In Progress)
+• Upload PDF documents
+• Automatically split PDFs into semantic chunks
+• Generate embeddings using Sentence Transformers
+• Store embeddings in Pinecone
+• Retrieve relevant document chunks using similarity search
+• Generate grounded answers with Gemini
+• Prompt engineering to reduce hallucinations
+• FastAPI REST API
 ---
 ## Tech Stack
 ### Backend
@@ -31,28 +31,23 @@ The goal is to build a production-ready AI assistant capable of answering questi
 - RecursiveCharacterTextSplitter
 ---
 ## Project Structure
-backend/
-│
-├── app.py
-├── ingest.py
-├── vectorstore.py
-│
-data/
-└── pdfs/
-│
-.env
-requirements.txt
----
-## Current Workflow
 PDF Upload
-↓
+      ↓
 Load PDF
-↓
-Split into Chunks
-↓
+      ↓
+Recursive Chunking
+      ↓
 Generate Embeddings
-↓
-Store Embeddings in Pinecone
+      ↓
+Store in Pinecone
+      ↓
+User asks a question
+      ↓
+Similarity Search
+      ↓
+Retrieve Top-k Chunks
+      ↓
+Gemini generates answer
 ---
 ## Upcoming Features
 - PDF Upload API
@@ -71,16 +66,24 @@ This project is being built to gain hands-on experience with:
 - FastAPI
 - Production AI Systems
 ---
-## Status
-Current Progress:
-- PDF Ingestion ✅
-- Chunking ✅
-- Embeddings ✅
-- Pinecone Integration ✅
-- FastAPI Backend 🚧
-- Retrieval Pipeline ⏳
-- Chat Interface ⏳
-- Deployment ⏳
+
+##Status
+Current Progress
+
+✅ PDF Upload API
+✅ PDF Ingestion
+✅ Recursive Chunking
+✅ Sentence Transformer Embeddings
+✅ Pinecone Vector Database
+✅ Semantic Retrieval
+✅ Gemini-powered Question Answering
+✅ FastAPI Backend
+
+🚧 React / Next.js Frontend
+🚧 Conversation Memory
+🚧 Streaming Responses
+🚧 Authentication
+🚧 Production Deployment
 ---
 ## Author
 Jasmeet Kaur
